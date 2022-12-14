@@ -14,21 +14,27 @@ public class FrameForRadioButton extends JFrame {
     ActionListener listenerLabel;
     JPanel pnl1;
     JPanel pnl2;
+    JPanel pnl3;
     JPanel pnl4;
+    JPanel pnl5;
 
     public FrameForRadioButton() {
         setLocation(500, 300);
         createGUI();
         setResizable(true);
         pack();
-        setSize(200, 200);
+        setSize(250, 200);
     }
 
     private void createGUI() {
         pnl4 = new JPanel();
         pnl4.setLayout(new FlowLayout());
+        pnl3 = new JPanel();
+        pnl3.setLayout(new FlowLayout());
         pnl2 = new JPanel();
         pnl2.setLayout(new FlowLayout());
+        pnl5 = new JPanel();
+        pnl5.setLayout(new FlowLayout());
         pnl1 = new JPanel();
         pnl1.setLayout(new FlowLayout());
         grpBackground = new ButtonGroup();
@@ -41,6 +47,8 @@ public class FrameForRadioButton extends JFrame {
         grpLabel.add(ylColorLabel);
         blColorLabel = new JRadioButton("Серый", true);
         grpLabel.add(blColorLabel);
+//        label = new JLabel("Управление цветом");
+//        label.setFont(new Font("Serif", Font.PLAIN, 14));
 
         listenerBackground = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -51,6 +59,8 @@ public class FrameForRadioButton extends JFrame {
                     ylColorLabel.setBackground(Color.red);
                     rdColorBackground.setBackground(Color.red);
                     grColorBackground.setBackground(Color.red);
+                    pnl3.setBackground(Color.red);
+                    pnl5.setBackground(Color.red);
                 } else if (grColorBackground.isSelected()) {
                     pnl1.setBackground(Color.green);
                     pnl2.setBackground(Color.green);
@@ -58,6 +68,8 @@ public class FrameForRadioButton extends JFrame {
                     ylColorLabel.setBackground(Color.green);
                     grColorBackground.setBackground(Color.green);
                     rdColorBackground.setBackground(Color.green);
+                    pnl3.setBackground(Color.green);
+                    pnl5.setBackground(Color.green);
                 }
             }
         };
@@ -68,25 +80,32 @@ public class FrameForRadioButton extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 if (ylColorLabel.isSelected()) {
                     pnl4.setBackground(Color.yellow);
+//                    label.setBackground(Color.yellow);
                 } else if (grColorBackground.isSelected()) {
+//                    label.setBackground(Color.gray);
                     pnl4.setBackground(Color.gray);
                 }
             }
         };
         ylColorLabel.addActionListener(listenerLabel);
         blColorLabel.addActionListener(listenerLabel);
-        label = new JLabel("Управление цветом");
-        label.setFont(new Font("Serif", Font.PLAIN, 12));
+//        label = new JLabel("Управление цветом");
+//        label.setFont(new Font("Serif", Font.PLAIN, 12));
 
         pnl4.add(new JLabel("Управление цветом"));
+//        pnl4.add(label);
+        pnl3.add(new JLabel("Управление цветом фона"));
         pnl1.add(rdColorBackground);
         pnl1.add(grColorBackground);
+        pnl5.add(new JLabel("Управление цветом фона метки"));
         pnl2.add(ylColorLabel);
         pnl2.add(blColorLabel);
 
-        setLayout(new GridLayout(3, 1));
+        setLayout(new GridLayout(5, 1));
         getContentPane().add(pnl4);
+        getContentPane().add(pnl3);
         getContentPane().add(pnl2);
+        getContentPane().add(pnl5);
         getContentPane().add(pnl1);
     }
 
