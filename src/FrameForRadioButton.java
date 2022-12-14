@@ -47,8 +47,8 @@ public class FrameForRadioButton extends JFrame {
         grpLabel.add(ylColorLabel);
         blColorLabel = new JRadioButton("Серый", true);
         grpLabel.add(blColorLabel);
-//        label = new JLabel("Управление цветом");
-//        label.setFont(new Font("Serif", Font.PLAIN, 14));
+        label = new JLabel("Управление цветом");
+        label.setFont(new Font("Serif", Font.BOLD, 16));
 
         listenerBackground = new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -61,6 +61,7 @@ public class FrameForRadioButton extends JFrame {
                     grColorBackground.setBackground(Color.red);
                     pnl3.setBackground(Color.red);
                     pnl5.setBackground(Color.red);
+                    getContentPane().setBackground(Color.red);
                 } else if (grColorBackground.isSelected()) {
                     pnl1.setBackground(Color.green);
                     pnl2.setBackground(Color.green);
@@ -70,6 +71,7 @@ public class FrameForRadioButton extends JFrame {
                     rdColorBackground.setBackground(Color.green);
                     pnl3.setBackground(Color.green);
                     pnl5.setBackground(Color.green);
+                    getContentPane().setBackground(Color.green);
                 }
             }
         };
@@ -80,20 +82,19 @@ public class FrameForRadioButton extends JFrame {
             public void actionPerformed(ActionEvent event) {
                 if (ylColorLabel.isSelected()) {
                     pnl4.setBackground(Color.yellow);
-//                    label.setBackground(Color.yellow);
+                    label.setBackground(Color.yellow);
                 } else if (grColorBackground.isSelected()) {
-//                    label.setBackground(Color.gray);
+                    label.setBackground(Color.gray);
                     pnl4.setBackground(Color.gray);
                 }
+                revalidate();
+                repaint();
             }
         };
         ylColorLabel.addActionListener(listenerLabel);
         blColorLabel.addActionListener(listenerLabel);
-//        label = new JLabel("Управление цветом");
-//        label.setFont(new Font("Serif", Font.PLAIN, 12));
 
-        pnl4.add(new JLabel("Управление цветом"));
-//        pnl4.add(label);
+        pnl4.add(label);
         pnl3.add(new JLabel("Управление цветом фона"));
         pnl1.add(rdColorBackground);
         pnl1.add(grColorBackground);
